@@ -77,8 +77,6 @@ The repo is organised as follows:
 * **gif** folder : includes animations made with the model
 
 ## Links
-Include links to your repository, slides and trello/kanban board. Feel free to include any other links associated with your project.
-
 
 [Slides](https://slides.com/pollorente/deck-78bfed)  
 
