@@ -48,7 +48,7 @@ First the percentage value of each class was evaluated in order to split the dat
 The percentage value of each class (Star, Galaxy, QSO (*Quasi-Stellar Object, or Quasar*)) was 40%, 50%, 10%. For QSO the dataset is slightly unbalanced, therefore the train-test split was done using stratification.
 As the dataset had 500,000 objects. I find it convenient to have 10,000 rows as a test set (2%), not the regular 20%. This is because if a dataset is large enough you can train the ML model with almost all the data, and it will still remain a fair absolute amount of objects in the test set.
 
-Analysing the train set i found that all the light features except redshift were strongly correlated with each other. I first planned to drop some of the columns, but finally I decided to create 4 new columns that were the difference between one column to the next (u-g, g-r, r-i, i-z). That value is known as Color Index. Also Redshift was completely skewed to the right, with almost all values below 0.01 but having values up to 6. Thus, I recomputed the column with a logarithm formula to try compensate this skewness.
+Analysing the train set I found that all the light features except redshift were strongly correlated with each other. I first planned to drop some of the columns, but finally I decided to create 4 new columns that were the difference between one column to the next (u-g, g-r, r-i, i-z). That value is known as Color Index. Also Redshift was completely skewed to the right, with almost all values below 0.01 but having values up to 6. Thus, I recomputed the column with a logarithm formula to try compensate this skewness.
 
 Finally, I used Standard Scaling before model training.
 
@@ -62,7 +62,7 @@ The final selected model was a Random Forest.
 I could reach a F1 score of 0.99 for the test set, which is really impressive. 
 In fact, for almost all models I could reach a F1 ober 95%, and I wanted to know why these high values.
 I computed the feature importance for the random forest, and I found the most important feature to classify objects was the redshift, with 52%.
-Plotting the redshift (with logarithm) along with sky coordinates using spherical coordinates helped distinguish in a fist glance the objects, and demonstrate that indeed the universe is expanding (the furthest objects are more redshifted, thus moving away from us at really high speeds).
+Plotting the redshift (with logarithm) along with sky coordinates using spherical coordinates helped distinguish in a fist glance the objects, and demonstrate that indeed the universe is expanding (the furthest objects more redshifted they are, thus moving away from us at really high speeds).
 
 ## Future Work
 For future improvements I would like to perform an unsupervised algorithm for anomaly detection, or for clustering the object in order to have a second overall subclassification (dwarf stars, supergiants, spiral galaxies, elliptical galaxies etc).
